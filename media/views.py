@@ -7,6 +7,7 @@ from .forms import GalleryLetterForm
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import send_welcome_email
 
+
 # Create your views here.
 
 # def convert_dates(dates):
@@ -20,9 +21,9 @@ from .email import send_welcome_email
     # return day
     
 @login_required(login_url='/accounts/login/')
-def images_of_day(request):
-    gallery = Images.objects.all()
-    date = dt.date.today()
+def images_of_today(request):
+    # gallery = Images.objects.all()
+    # date = dt.date.today()
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
     
     if request.method == 'POST':
