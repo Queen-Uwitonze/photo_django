@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -135,5 +135,5 @@ EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-LOGIN_REDIRECT_URL = 'images_of_day'
-LOGOUT_URL = 'images_of_day'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_URL = 'index'

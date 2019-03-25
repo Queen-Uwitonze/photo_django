@@ -10,6 +10,9 @@
           <a href="{%url 'galleryToday'%}">Home</a>
         </li>
         <li>
+          <a href="{%url 'new-profile'%}">Create profile</a>
+        </li>
+        <li>
           <a href="/accounts/password/change">Change Password</a>
         </li>
         <li>
@@ -18,10 +21,6 @@
       </ul>
     </li>
   </ul>
-  {% else %}
-  <li>
-    <a class='btn btn-default' href="/accounts/login">Login</a>
-  </li>
 
   {% endif %}
 </div>

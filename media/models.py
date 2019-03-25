@@ -1,11 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
-class Photo(models.Model):
-    description = models.CharField(max_length=255, blank=True)
-    document = models.FileField(upload_to='documents/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
+class Profile(models.Model):
+    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_name = models.CharField(max_length=30,blank=True)
+    prof_pic = models.ImageField(upload_to='profiles/', blank=True)
+    bio = models.TextField(max_length=50, blank=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
 
 
 
