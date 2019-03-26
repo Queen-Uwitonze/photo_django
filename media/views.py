@@ -10,20 +10,9 @@ from .models import Profile ,Photo
 from .forms import NewProfileForm, GalleryLetterForm,PhotoForm
 
 @login_required(login_url='/accounts/login/')
-def photos(request):
-    
-    if request.method == 'POST':
-        form = GalleryLetterForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['your_name']
-            email = form.cleaned_data['email']
-            recipient = GalleryLetterRecipients(name = name,email =email)
-            recipient.save()
-            send_welcome_email(name,email)
-            HttpResponseRedirect('photos')
-    else:
-        form = GalleryLetterForm()
-    return render(request, 'all_gallery/today-gallery.html',{"letterForm":form})
+def index(request):
+    photo = Photo.objects.all()
+    return render(request, 'all_gallery/today-gallery.html')
 
 @login_required(login_url='/accounts/login/')
 def new_profile(request):
