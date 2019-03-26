@@ -34,7 +34,7 @@ def new_profile(request):
             profile = form.save(commit=False)
             profile.user = current_user
             profile.save()
-        return redirect("galleryToday")
+        return redirect("home")
 
     else:
         form = NewProfileForm()
@@ -47,36 +47,26 @@ def profile(request):
    
     return render(request,'all_gallery/profile.html',{"profile":profile,"user":user})
 
-def photo(request):
+@login_required(login_url='/accounts/login/')
+def photos(request):
     current_user = request.user
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             photo = form.save(commit=False)
             photo.user = current_user
+            photo.profile = current_user
             photo.save()
+
+        return redirect("home")
 
     else:
         form = PhotoForm()
     return render(request, 'images.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
-def photos(request,photo_id):
-    user = User.objects.get(id=id)
-    photo =Photo.objects.get(id = photo_id)
-    return render(request,"insta.html", {"photo":photo})
-
-def comments(request):
+def photo(request):
     current_user = request.user
-    if request.method == 'POST':
-        form = CommentsForm(request.POST, request.FILES)
-        if form.is_valid():
-            comments = form.save(commit=False)
-            comments.user = current_user
-            comments.save()
+    
+    return render(request,"all_gallery/today-gallery.html")
 
-            return redirect(home)
-
-    else:
-        form = CommentsForm()
-    return render(request, 'comment.html', {"form": form})

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'galleryToday' %}">InstaG</a>
+      <a class="navbar-brand" href="{% url 'home' %}">InstaG</a>
     </div>
     <div class="col-sm-6 col-md-6">
       {% if user.is_authenticated %}
@@ -12,7 +12,7 @@
           </a>
           <ul class="dropdown-menu" role="menu">
             <li>
-              <a href="{%url 'galleryToday'%}">Home</a>
+              <a href="{%url 'home' %}">Home</a>
             </li>
             <li>
               <a href="{%url 'new-profile'%}">View profile</a>

@@ -5,10 +5,10 @@
 <!-- Looping through news end   -->
 <div class="container-fluid">
 
-  <form action="{%url 'galleryToday'%}" method="post">
+  <form action="{%url 'home'%}" method="post">
     {%csrf_token%}
 
-    {% bootstrap_form letterForm layout='inline' %}
+    {% bootstrap_form form layout='inline' %}
     <input type="submit" value="Subscribe">
   </form>
 

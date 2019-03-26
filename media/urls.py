@@ -7,9 +7,9 @@ from django.contrib.auth.views import logout
 
 urlpatterns=[
     
-    url(r'^$', views.photos,name='galleryToday'),
+    url(r'^$', views.photos,name='home'),
     url(r'^profile/', views.new_profile, name='profile'),
-    url(r'^new/profile$', views.profile, name='new-profile'),
+    url(r'^new/profile', views.profile, name='new-profile'),
     url(r'^image/', views.photos, name='image'),
 
 ]

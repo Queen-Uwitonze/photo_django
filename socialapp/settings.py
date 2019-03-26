@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    "pinax.templates",
     'bootstrap3',
     'media.apps.MediaConfig',
     'django.contrib.admin',
@@ -41,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinymce',
+   
 ]
 
 MIDDLEWARE = [
@@ -136,5 +135,5 @@ EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-LOGIN_REDIRECT_URL = 'profile'
-LOGOUT_URL = 'index'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'home'

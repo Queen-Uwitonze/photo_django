@@ -16,12 +16,12 @@
   {% block styles %}
   {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/basenews.css' %}">
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+
   {% endblock %}
 
 </head>
 
-<body style="background-color:rgb(215, 215, 193);">
+<body>
   {% include "navbar.html" %}
 
   {% block content %} <h1 class='text-center'></h1> {%endblock%}

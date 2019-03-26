@@ -1,4 +1,4 @@
-#!/home/wecode/Documents/photo_django/virtual/bin/python
+#!/home/wecode/Desktop/personal_gallery/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
