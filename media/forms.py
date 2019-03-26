@@ -16,3 +16,8 @@ class PhotoForm(forms.ModelForm):
     class Meta:
         model = Photo
         exclude = ['user','profile']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        exclude = ['user']

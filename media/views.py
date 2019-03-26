@@ -65,3 +65,18 @@ def photos(request,photo_id):
     user = User.objects.get(id=id)
     photo =Photo.objects.get(id = photo_id)
     return render(request,"insta.html", {"photo":photo})
+
+def comments(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = CommentsForm(request.POST, request.FILES)
+        if form.is_valid():
+            comments = form.save(commit=False)
+            comments.user = current_user
+            comments.save()
+
+            return redirect(home)
+
+    else:
+        form = CommentsForm()
+    return render(request, 'comment.html', {"form": form})
