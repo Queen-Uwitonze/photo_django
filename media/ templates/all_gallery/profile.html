@@ -1,28 +1,15 @@
-{%extends 'all_gallery/base.html'%}
+{%extends 'base.html'%}
 
 {% block content %}
+{{block.super}}
 
 <div class="container">
 
-  <div class="row">
-    <img src="{{profile.prof_pic.url}}" class="img-responsive" alt="">
-  </div>
+  <p>{{profile.name}}</p>
 
-  <!-- <div class="row">
-    <h1 class="text-center">{{profile.title}}</h1>
-  </div> -->
+  <img src="{{profile.prof_pic.url}}" alt="Image">
 
-  <div class="row">
-    {% autoescape on %}
-    {{profile.prof_pic| safe}}
-    {% endautoescape %}
 
-  </div>
-
-  <div class="row">
-    <p>Posted by {{profile.user.name}}</p>
-  </div>
 
 </div>
-
 {% endblock %}

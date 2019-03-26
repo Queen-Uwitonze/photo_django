@@ -6,10 +6,10 @@ from . import views
 from django.contrib.auth.views import logout
 
 urlpatterns=[
-   
+    
     url(r'^$', views.photos,name='galleryToday'),
-    # url(r'^profile/(?P<user_id>\d+)?$', views.profile, name='profile'),
-    url(r'^new/profile$', views.new_Profile, name='new-profile')
+    url(r'^profile/(?P<user_id>\d+)?$', views.new_profile, name='profile'),
+    url(r'^new/profile$', views.profile, name='new-profile')
 ]
 
 if settings.DEBUG:
