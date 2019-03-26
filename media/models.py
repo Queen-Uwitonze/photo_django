@@ -34,7 +34,10 @@ class Photo(models.Model):
 
     def save_photo(self):
         self.save()
-
+    
+     def delete_photo(self):
+        self.delete()
+        
     @classmethod
     def get_photos(cls,id):
         photo = Photo.objects.all()
