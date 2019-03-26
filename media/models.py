@@ -44,4 +44,22 @@ class GalleryLetterForm(models.Model):
     name = models.CharField(max_length = 30)
     email = models.EmailField()
 
+class Comments(models.Model):
+    comment = models.CharField(max_length = 300)
+    photo = models.ForeignKey(Image, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+   
+    def save_comment(self):
+        self.save()
+
+    def delete_comment(self):
+        self.delete()
+
+class Like(models.Model):
+    likes= models.IntegerField(default=0)
+    photo= models.ForeignKey(Image, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.likes
 
