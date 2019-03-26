@@ -34,7 +34,7 @@ def new_profile(request):
             profile = form.save(commit=False)
             profile.user = current_user
             profile.save()
-        return redirect(galleryToday)
+        return redirect("galleryToday")
 
     else:
         form = NewProfileForm()
@@ -56,13 +56,11 @@ def photo(request):
             photo.user = current_user
             photo.save()
 
-        return redirect()
-
     else:
         form = PhotoForm()
     return render(request, 'images.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
-def photoes(request,image_id):
+def photos(request,image_id):
     photo =Photo.objects.get(id = image_id)
-    return render(request,"info.html", {"image":image})
+    return render(request,"info.html", {"photo":photo})
