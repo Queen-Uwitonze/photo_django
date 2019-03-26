@@ -61,6 +61,7 @@ def photo(request):
     return render(request, 'images.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
-def photos(request,image_id):
-    photo =Photo.objects.get(id = image_id)
-    return render(request,"info.html", {"photo":photo})
+def photos(request,photo_id):
+    user = User.objects.get(id=id)
+    photo =Photo.objects.get(id = photo_id)
+    return render(request,"insta.html", {"photo":photo})

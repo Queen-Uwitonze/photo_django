@@ -35,9 +35,9 @@ class Photo(models.Model):
     def save_photo(self):
         self.save()
     
-     def delete_photo(self):
+    def delete_photo(self):
         self.delete()
-        
+
     @classmethod
     def get_photos(cls,id):
         photo = Photo.objects.all()
@@ -49,7 +49,7 @@ class GalleryLetterForm(models.Model):
 
 class Comments(models.Model):
     comment = models.CharField(max_length = 300)
-    photo = models.ForeignKey(Image, on_delete=models.CASCADE)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
    
     def save_comment(self):
@@ -60,7 +60,7 @@ class Comments(models.Model):
 
 class Like(models.Model):
     likes= models.IntegerField(default=0)
-    photo= models.ForeignKey(Image, on_delete=models.CASCADE)
+    photo= models.ForeignKey(Photo, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
