@@ -1,7 +1,7 @@
-from PIL import Image
+# from PIL import Photo
 from django import forms
 from django.core.files import File
-from .models import Profile
+from .models import Profile,Photo
 
 class GalleryLetterForm(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)

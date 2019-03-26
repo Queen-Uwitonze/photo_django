@@ -1,6 +1,6 @@
 {%extends 'all_gallery/base.html'%}
 {% load bootstrap3 %} {% load staticfiles %}
-
+{% block content %}
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +19,7 @@
 <body>
   <div class="container">
 
-    <form action="{%url 'photo'%}" method="post" enctype="multipart/form-data">
+    <form action="{%url 'image'%}" method="post" enctype="multipart/form-data">
       {%csrf_token%}
 
       {% bootstrap_form form%}
@@ -33,3 +33,4 @@
 </body>
 
 </html>
+{% endblock %}

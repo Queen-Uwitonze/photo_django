@@ -56,9 +56,11 @@ def photo(request):
             photo.user = current_user
             photo.save()
 
+        return redirect()
+
     else:
-        form = PhotosForm()
-    return render(request, 'image.html', {"form": form})
+        form = PhotoForm()
+    return render(request, 'images.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
 def photoes(request,image_id):
