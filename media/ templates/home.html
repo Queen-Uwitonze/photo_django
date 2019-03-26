@@ -1,0 +1,37 @@
+{%extends 'all_gallery/base.html'%}
+{% block content %}
+<h1>
+  <center>Instagram Clone App</center>
+</h1>
+<br><br>
+<div class="container">
+  <div class="panel-heading">
+    {% for img in profile %}
+    <div class="row">
+      <div class="col-md-9">
+        <img src="{{img.prof_pic.url}}" class="img-responsive" alt="Image" width=600 height=600 class="avatar">
+
+        <strong>{{img.user_name}}</strong><br>
+
+        {% endfor %}
+        <div class="panel-heading">
+          {% for img in photo %}
+          <div class="row">
+            <div class="col-md-9">
+              <img src="{{img.image.url}}" class="img-responsive" alt="Image" width=600 height=600 class="avatar">
+
+              <strong>{{img.name}}</strong><br>
+
+
+              <strong>{{img.caption}}</strong>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- <p><a href="#" class="btn btn-primary ">Upload Image</a></p> -->
+      </div>
+
+    </div>
+  </div>
+  {%endblock%}

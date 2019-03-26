@@ -12,7 +12,7 @@ from .forms import NewProfileForm, GalleryLetterForm,PhotoForm
 @login_required(login_url='/accounts/login/')
 def index(request):
     photo = Photo.objects.all()
-    return render(request, 'all_gallery/today-gallery.html')
+    return render(request, 'home.html',{"photo":photo})
 
 @login_required(login_url='/accounts/login/')
 def new_profile(request):
