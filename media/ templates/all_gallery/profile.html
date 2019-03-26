@@ -1,14 +1,15 @@
-{%extends 'base.html'%}
+{%extends 'all_gallery/base.html'%}
 
 {% block content %}
 {{block.super}}
 
 <div class="container">
 
-  <p>{{profile.name}}</p>
+  <p>{{profile.user_name}}</p>
 
-  <img src="{{profile.prof_pic.url}}" alt="Image">
+  <img src="{{profile.prof_pic.url}}" alt="Image" width="300" height="300">
 
+  <p>{{profile.bio}}</p>
 
 
 </div>

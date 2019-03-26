@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    "pinax.templates",
     'bootstrap3',
     'media.apps.MediaConfig',
     'django.contrib.admin',

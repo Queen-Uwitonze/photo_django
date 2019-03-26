@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import GalleryLetterForm
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import send_welcome_email
-from .models import Profile 
+from .models import Profile ,Photo
 from .forms import NewProfileForm, GalleryLetterForm
 
 @login_required(login_url='/accounts/login/')
@@ -34,16 +34,28 @@ def new_profile(request):
             profile = form.save(commit=False)
             profile.user = current_user
             profile.save()
-        # return redirect('galleryToday')
+        return redirect(galleryToday)
 
     else:
         form = NewProfileForm()
-    return render(request, 'new-profile.html', {"form": form})
+    return render(request, 'all_gallery/new-profile.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
-def profile(reques,id):
-    user = User.objects.get(id = id)
+def profile(request):
+    user = User.objects.get()
     profile = Profile.objects.get(user = user)
    
-    return render(request,'my_profile.html',{"profile":profile,"user":user})
+    return render(request,'all_gallery/profile.html',{"profile":profile,"user":user})
 
+def photo(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = PhotosForm(request.POST, request.FILES)
+        if form.is_valid():
+            photo = form.save(commit=False)
+            photo.user = current_user
+            photo.save()
+
+    else:
+        form = ImageForm()
+    return render(request, 'image.html', {"form": form})

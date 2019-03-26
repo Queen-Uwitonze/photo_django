@@ -13,7 +13,7 @@ class Profile(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.user_name
 
     def save_profile(self):
         self.save()
@@ -23,7 +23,7 @@ class Profile(models.Model):
         profiles = cls.objects.all()
         return profiles
 
-class Photos(models.Model):
+class Photo(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     image = models.ImageField(upload_to = 'gramys/')
     name = models.CharField(max_length =60)
