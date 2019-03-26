@@ -11,6 +11,8 @@ class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user']
-        widgets = {
-            '': forms.CheckboxSelectMultiple(),
-        }
+        
+class PhotoForm(forms.ModelForm):
+    class Meta:
+        model = Photo
+        exclude = ['user','profile']

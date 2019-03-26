@@ -25,7 +25,7 @@ class Profile(models.Model):
 
 class Photo(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    image = models.ImageField(upload_to = 'gramys/')
+    image = models.ImageField(upload_to = 'photos/')
     name = models.CharField(max_length =60)
     caption = models.CharField(max_length =200)
    
@@ -36,7 +36,7 @@ class Photo(models.Model):
         self.save()
 
     @classmethod
-    def get_photoes(cls):
+    def get_photos(cls):
         images = cls.objects.all()
         return images    
 

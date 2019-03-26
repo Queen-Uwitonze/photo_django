@@ -7,7 +7,7 @@ from .forms import GalleryLetterForm
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import send_welcome_email
 from .models import Profile ,Photo
-from .forms import NewProfileForm, GalleryLetterForm
+from .forms import NewProfileForm, GalleryLetterForm,PhotoForm
 
 @login_required(login_url='/accounts/login/')
 def photos(request):
@@ -50,12 +50,17 @@ def profile(request):
 def photo(request):
     current_user = request.user
     if request.method == 'POST':
-        form = PhotosForm(request.POST, request.FILES)
+        form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
             photo = form.save(commit=False)
             photo.user = current_user
             photo.save()
 
     else:
-        form = ImageForm()
+        form = PhotosForm()
     return render(request, 'image.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def photoes(request,image_id):
+    photo =Photo.objects.get(id = image_id)
+    return render(request,"info.html", {"image":image})

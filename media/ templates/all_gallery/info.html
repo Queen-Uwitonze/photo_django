@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="row">
+    <img src="{{photo.image.url}}" class="img-responsive" alt="">
+  </div>
+  <div class="row">
+    <h1 class="text-center">{{photo.name}}</h1>
+  </div>
+
+  <div class="row">
+    <p>{{photo.caption}}</p>
+  </div>
+  <h1>{{photo.user}}</h1>
+
+  <button><a href="{%url 'comments'%}">Comment</a></button>
+
+</div>
+
+{% endblock %}
