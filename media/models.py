@@ -27,8 +27,9 @@ class Photo(models.Model):
     profile = models.ForeignKey(User,on_delete=models.CASCADE)
     image = models.ImageField(upload_to = 'profiles/')
     name = models.CharField(max_length =60)
-    caption = models.CharField(max_length =200)
-   
+    caption = models.CharField(max_length =60)
+    
+
     def __str__(self):
         return self.name
 
@@ -48,9 +49,9 @@ class GalleryLetterForm(models.Model):
     email = models.EmailField()
 
 class Comments(models.Model):
-    comment = models.CharField(max_length = 300)
-    photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comments = models.CharField(max_length = 300)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE,related_name='photo')
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='comments')
    
     def save_comment(self):
         self.save()
@@ -58,7 +59,7 @@ class Comments(models.Model):
     def delete_comment(self):
         self.delete()
 
-class Like(models.Model):
+class Likes(models.Model):
     likes= models.IntegerField(default=0)
     photo= models.ForeignKey(Photo, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

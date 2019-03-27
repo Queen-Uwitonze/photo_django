@@ -7,12 +7,13 @@ from .forms import GalleryLetterForm
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import send_welcome_email
 from .models import Profile ,Photo
-from .forms import NewProfileForm, GalleryLetterForm,PhotoForm
+from .forms import NewProfileForm, GalleryLetterForm,PhotoForm,CommentsForm
 
 @login_required(login_url='/accounts/login/')
 def index(request):
     photo = Photo.objects.all()
-    return render(request, 'home.html',{"photo":photo})
+    profile = Profile.objects.all()
+    return render(request, 'home.html',{"photo":photo,"profile":profile})
 
 @login_required(login_url='/accounts/login/')
 def new_profile(request):
@@ -59,3 +60,18 @@ def photo(request):
     
     return render(request,"all_gallery/today-gallery.html")
 
+
+def comments(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = CommentsForm(request.POST, request.FILES)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.save()
+
+            return redirect(home)
+
+    else:
+        form = CommentsForm()
+    return render(request, 'comment.html', {"form": form})

@@ -1,7 +1,7 @@
 # from PIL import Photo
 from django import forms
 from django.core.files import File
-from .models import Profile,Photo,Comments,Like
+from .models import Profile,Photo,Comments,Likes
 
 class GalleryLetterForm(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)
@@ -17,12 +17,12 @@ class PhotoForm(forms.ModelForm):
         model = Photo
         exclude = ['user','profile']
 
-class CommentForm(forms.ModelForm):
+class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comments
         exclude = ['user']
 
 class LikeForm(forms.ModelForm):
     class Meta:
-        model = Like
+        model = Likes
         exclude = ['user','image']
