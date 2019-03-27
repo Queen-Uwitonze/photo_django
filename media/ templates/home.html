@@ -4,37 +4,41 @@
   <center>Instagram Clone App</center>
 </h1>
 <br><br>
-<div class="container">
+<div class="container" style="background-color:pink">
   <div class="panel-heading">
+
     {% for pic in profile %}
     <div class="row">
       <div class="col-md-9">
+        <strong>{{pic.user_name}}</strong><br>
         <img src="{{pic.prof_pic.url}}" class="img-responsive" alt="Image" width=200 height=200 class="avatar">
 
-        <strong>{{pic.user_name}}</strong><br>
         <strong>{{pic.bio}}</strong><br>
+
         {% endfor %}
         <div class="panel-heading">
-          <div class="imgnew">
-            {% for img in photo %}
-            <div class="row">
-              <div class="col-md-9">
-                <img src="{{img.image.url}}" class="img-responsive" alt="Image" width=600 height=600 class="avatar">
+          <center>
+            <div class="imgnew">
+              {% for img in photo %}
+              <div class="row">
+                <div class="col-md-9">
+                  <strong>{{img.name}}</strong><br>
+                  <img src="{{img.image.url}}" class="img-responsive" alt="Image" width=600 height=600 class="avatar">
 
-                <strong>{{img.name}}</strong><br>
 
 
-                <strong>{{img.caption}}</strong>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-
+                  <strong>{{img.caption}}</strong>
+                </div>
+          </center>
+          {% endfor %}
         </div>
-
-        <!-- <p><a href="#" class="btn btn-primary ">Upload Image</a></p> -->
       </div>
 
     </div>
+
+    <!-- <p><a href="#" class="btn btn-primary ">Upload Image</a></p> -->
   </div>
-  {%endblock%}
+
+</div>
+</div>
+{%endblock%}
