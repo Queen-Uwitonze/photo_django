@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import GalleryLetterForm
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .email import send_welcome_email
-from .models import Profile ,Photo
-from .forms import NewProfileForm, GalleryLetterForm,PhotoForm,CommentsForm
+from .models import Profile ,Photo,Comments
+from .forms import NewProfileForm, GalleryLetterForm,PhotoForm,NewCommentForm
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -55,29 +55,10 @@ def photos(request):
     return render(request, 'images.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
-def photo(request):
-    current_user = request.user
+def images(request,photo_id):
+    photo = Photo.objects.get(id = photo_id)
     
-    return render(request,"all_gallery/today-gallery.html")
+    return render(request,"all_gallery/insta.html", {"photo":photo,})
 
 
-def comments(request):
-    current_user = request.user
-    if request.method == 'POST':
-        form = CommentsForm(request.POST, request.FILES)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.user = current_user
-            comment.save()
 
-            return redirect("home")
-
-    else:
-        form = CommentsForm()
-    return render(request, 'comment.html', {"form": form})
-
-@login_required(login_url='/accounts/login/')
-def com(request,image_id):
-    photo = Photo.objects.get(id = image_id)
-    comments = Comments.objects.filter(image = image.id).all() 
-    likes = Like.objects.filter(image = image.id).all() 

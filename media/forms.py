@@ -17,10 +17,10 @@ class PhotoForm(forms.ModelForm):
         model = Photo
         exclude = ['user','profile']
 
-class CommentsForm(forms.ModelForm):
+class NewCommentForm(forms.ModelForm):
     class Meta:
         model = Comments
-        exclude = ['user']
+        exclude = []
 
 class LikeForm(forms.ModelForm):
     class Meta:

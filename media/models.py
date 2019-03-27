@@ -28,7 +28,8 @@ class Photo(models.Model):
     image = models.ImageField(upload_to = 'profiles/')
     name = models.CharField(max_length =60)
     caption = models.CharField(max_length =60)
-    
+    # comments = models.ForeignKey(User,on_delete=models.CASCADE)
+    # likes = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -58,6 +59,11 @@ class Comments(models.Model):
 
     def delete_comment(self):
         self.delete()
+
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comments.objects.all()
+        return comments
 
 class Likes(models.Model):
     likes= models.IntegerField(default=0)

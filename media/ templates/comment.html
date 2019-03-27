@@ -1,4 +1,9 @@
 {% load bootstrap3 %} {% load staticfiles %}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+{% endblock %}
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +22,7 @@
 <body>
   <div class="container">
 
-    <form action="{%url ''%}" method="post" enctype="multipart/form-data">
+    <form action="{%url 'comments'%}" method="post" enctype="multipart/form-data">
       {%csrf_token%}
 
       {% bootstrap_form form%}

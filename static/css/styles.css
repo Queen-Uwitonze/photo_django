@@ -1,3 +1,6 @@
+body{
+  font-family: 'Playfair Display', serif;
+}
 h1
 {
   color:palevioletred;
@@ -9,7 +12,7 @@ h1
 img{
     vertical-align: middle;
     width: 200px;
-    height: 200px;
+    height:200px;
     border-radius: 50%;
   }
 .panel-body{
@@ -30,4 +33,5 @@ p{
 button{
   float:right;
   margin-right: 5px;
+  padding: 10px;
 }

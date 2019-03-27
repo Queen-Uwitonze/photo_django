@@ -5,18 +5,19 @@
 <div class="container">
 
   <div class="row">
-    <img src="{{photo.image.url}}" class="img-responsive" alt="">
+    <img src="{{photo.image.url}}" class="img-responsive" alt="" width="500px">
   </div>
   <div class="row">
-    <h1 class="text-center">{{photo.name}}</h1>
+    <h1>{{photo.name}}</h1>
   </div>
 
   <div class="row">
     <p>{{photo.caption}}</p>
+    <p class="card_text">{{photo.pub_date}}</p>
   </div>
   <h1>{{photo.user}}</h1>
 
-  <button><a href="{%url 'comment'%}">Comment</a></button>
+  <button class="text-center">Comment</a></button>
 
 </div>
 

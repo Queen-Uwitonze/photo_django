@@ -1,5 +1,10 @@
 {%extends 'all_gallery/base.html'%}
 {% load bootstrap3 %} {% load staticfiles %}
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+{% endblock %}
 {% block content %}
 <!DOCTYPE html>
 <html>
