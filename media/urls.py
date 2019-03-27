@@ -11,7 +11,7 @@ urlpatterns=[
     url(r'^profile/', views.new_profile, name='profile'),
     url(r'^new/profile', views.profile, name='new-profile'),
     url(r'^image/', views.photos, name='image'),
-
+    url(r'^comments/', views.comments, name='comments'),
 ]
 
 if settings.DEBUG:

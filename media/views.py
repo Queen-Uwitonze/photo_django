@@ -70,8 +70,14 @@ def comments(request):
             comment.user = current_user
             comment.save()
 
-            return redirect(home)
+            return redirect("home")
 
     else:
         form = CommentsForm()
     return render(request, 'comment.html', {"form": form})
+
+@login_required(login_url='/accounts/login/')
+def com(request,image_id):
+    photo = Photo.objects.get(id = image_id)
+    comments = Comments.objects.filter(image = image.id).all() 
+    likes = Like.objects.filter(image = image.id).all() 

@@ -1,6 +1,6 @@
 h1
 {
-  color: green;
+  color:palevioletred;
   font-family:serif;
 }
 /* img{
@@ -19,7 +19,15 @@ img{
   width: 600px;
   height: 600px;
   border-radius: 0%;
+  padding: 50px;
 }
 .panel panel-info{
   width: 5px;
+}
+p{
+  font-size: 20px
+}
+button{
+  float:right;
+  margin-right: 5px;
 }

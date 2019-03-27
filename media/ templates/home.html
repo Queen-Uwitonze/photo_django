@@ -6,39 +6,39 @@
 <br><br>
 <div class="container" style="background-color:pink">
   <div class="panel-heading">
-
+    <button class="btn btn-danger">followers</button>
+    <button class="btn btn-danger">following</button>
     {% for pic in profile %}
     <div class="row">
       <div class="col-md-9">
         <strong>{{pic.user_name}}</strong><br>
         <img src="{{pic.prof_pic.url}}" class="img-responsive" alt="Image" width=200 height=200 class="avatar">
 
-        <strong>{{pic.bio}}</strong><br>
+        <p><strong>{{pic.bio}}</strong><br></p>
 
         {% endfor %}
         <div class="panel-heading">
-          <center>
-            <div class="imgnew">
-              {% for img in photo %}
-              <div class="row">
-                <div class="col-md-9">
-                  <strong>{{img.name}}</strong><br>
-                  <img src="{{img.image.url}}" class="img-responsive" alt="Image" width=600 height=600 class="avatar">
 
+          <div class="imgnew">
+            {% for img in photo %}
+            <div class="row">
+              <div class="col-md-9">
 
+                <img src="{{img.image.url}}" class="img-responsive" alt="Image" width=600 height=600 class="avatar">
+                <p><strong>{{img.caption}}</strong></p>
+                <a href="">comment</a>
+                <a href="">likes</a>
+              </div>
 
-                  <strong>{{img.caption}}</strong>
-                </div>
-          </center>
-          {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+
         </div>
+
+        <!-- <p><a href="#" class="btn btn-primary ">Upload Image</a></p> -->
       </div>
 
     </div>
-
-    <!-- <p><a href="#" class="btn btn-primary ">Upload Image</a></p> -->
   </div>
-
-</div>
-</div>
-{%endblock%}
+  {%endblock%}
