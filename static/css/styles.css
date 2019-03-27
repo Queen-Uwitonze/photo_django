@@ -8,16 +8,16 @@ h1
 } */
 img{
     vertical-align: middle;
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
   }
 .panel-body{
     background-color:pink;
   }
 .imgnew img{ 
-  width: 330px;
-  height: 250px;
+  width: 600px;
+  height: 600px;
   border-radius: 0%;
 }
 .panel panel-info{
