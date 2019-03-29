@@ -19,10 +19,11 @@ img{
     background-color:pink;
   }
 .imgnew img{ 
-  width: 600px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
   border-radius: 0%;
   padding: 50px;
+  justify-content: center;
 }
 .panel panel-info{
   width: 5px;

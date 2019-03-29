@@ -1,5 +1,5 @@
 .DS_STORE
   venv/
   *.pyc
-  .env
+  /.env
   db.sqlite3
