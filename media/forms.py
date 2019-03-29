@@ -22,7 +22,7 @@ class NewCommentForm(forms.ModelForm):
         model = Comments
         exclude = []
 
-class LikeForm(forms.ModelForm):
-    class Meta:
-        model = Likes
-        exclude = ['user','image']
+# class LikeForm(forms.ModelForm):
+#     class Meta:
+#         model = Likes
+#         exclude = ['user','image']
